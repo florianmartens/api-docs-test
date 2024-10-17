@@ -6,7 +6,7 @@ function App() {
     <ApiReferenceReact
       configuration={{
         spec: {
-          url: "/public/openapi.yaml",
+          url: "/openapi.yaml",
         },
       }}
     />
