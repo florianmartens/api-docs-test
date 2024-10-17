@@ -17,12 +17,14 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Book'
+                title: GetBookListOk
           description: A JSON array containing book objects.
         '400':
           content:
             application/json:
               schema:
                 type: object
+                title: GetBookListBadRequest
                 required:
                 - status
                 - message
@@ -52,6 +54,7 @@ paths:
             application/json:
               schema:
                 type: object
+                title: GetBookListUnauthorized
                 required:
                 - status
                 - message
@@ -72,6 +75,7 @@ paths:
             application/json:
               schema:
                 type: object
+                title: GetBookListForbidden
                 required:
                 - status
                 - message
@@ -92,6 +96,7 @@ paths:
             application/json:
               schema:
                 type: object
+                title: GetBookListInternalServerError
                 required:
                 - status
                 - message
@@ -125,6 +130,7 @@ paths:
             application/json:
               schema:
                 type: object
+                title: CreateBookCreated
                 required:
                 - status
                 - data
@@ -190,30 +196,6 @@ paths:
       description: |
         Fetches details of a specific book by its unique identifier. The response includes the book's name and publication date.
       operationId: getBook
-    delete:
-      tags:
-      - books
-      summary: Delete book
-      responses:
-        '204':
-          $ref: '#/components/responses/NoContent'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '409':
-          $ref: '#/components/responses/Conflict'
-        '500':
-          $ref: '#/components/responses/InternalServerErrror'
-      parameters:
-      - $ref: '#/components/parameters/bookId'
-      description: |
-        Deletes a specific book from the bookstore using its unique identifier. The operation confirms successful deletion.
-      operationId: deleteBook
 components:
   schemas:
     Book:
